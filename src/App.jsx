@@ -6,7 +6,7 @@ import {Fragment} from "react";
 
 const App = () => {
 
-    let marks = 80;
+    let marks = 90;
     const city = ["Dhaka", "London", "Delhi", "Kolkata", "Chittagong"];
     const status = true;
 
@@ -26,6 +26,25 @@ const App = () => {
     //     default:
     //         return null;
     // }
+
+    const ItemObj = {
+        id: 1,
+        name: 'Abdul Kader',
+        age: 36,
+        city: 'Dhaka'
+    }
+    
+    const btnClick = () =>{
+        alert('Hello!!!!');
+    }
+    
+    function Demo(){
+        alert('Hello Regular Function!!!');
+    }
+    
+    const demo1 = () =>{
+        alert('Hello Arrow Function')
+    }
 
     return (
         <>
@@ -91,15 +110,25 @@ const App = () => {
 
             {/*    Immediately invoked function for conditional rendering */}
 
-            {(()=>{
-                if(status){
+            {(() => {
+                if (status) {
                     return <button>Logout Button2</button>
-                }else{
+                } else {
                     return <button>Login Button2</button>
                 }
             })()}
 
+            <Hero childBtnClick={btnClick} {...ItemObj}/>
+            {/*<ul>*/}
+            {/*    <li>Name: {ItemObj['name']}</li>*/}
+            {/*    <li>Age: {ItemObj.age}</li>*/}
+            {/*    <li>City: {ItemObj.city}</li>*/}
+            {/*</ul>*/}
             
+            <div>
+                <button onClick={demo1}>Submit</button>
+            </div>
+
         </>
     );
 };
