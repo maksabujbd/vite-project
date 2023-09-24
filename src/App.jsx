@@ -18,6 +18,15 @@ const App = () => {
         }
     }
 
+    // switch (status){
+    //     case true:
+    //         return <button>Logout Btn</button>
+    //     case false:
+    //         return <button>Login Btn</button>
+    //     default:
+    //         return null;
+    // }
+
     return (
         <>
             <Fragment>
@@ -64,6 +73,33 @@ const App = () => {
             <h1>Login Status</h1>
             {loginStatusBtn(true)}
 
+            {/* Ternary or If else */}
+
+            {
+                status ?
+                    <button>Logout Button</button> :
+                    <button>Login Button</button>
+            }
+
+            {/*    Logical && and ||    */}
+
+            <br/>
+            <h1>Login Status</h1>
+            {
+                status && <button>Logout Button1</button>
+            }
+
+            {/*    Immediately invoked function for conditional rendering */}
+
+            {(()=>{
+                if(status){
+                    return <button>Logout Button2</button>
+                }else{
+                    return <button>Login Button2</button>
+                }
+            })()}
+
+            
         </>
     );
 };
