@@ -8,6 +8,16 @@ const App = () => {
 
     let marks = 80;
     const city = ["Dhaka", "London", "Delhi", "Kolkata", "Chittagong"];
+    const status = true;
+
+    const loginStatusBtn = (status) => {
+        if (status) {
+            return <button>Logout Btn</button>
+        } else {
+            return <button>Login Btn</button>
+        }
+    }
+
     return (
         <>
             <Fragment>
@@ -40,7 +50,7 @@ const App = () => {
                     }
                 )()}
 
-                {/*    Loop inside implementation using map */}
+                {/* Loop inside implementation using map */}
 
                 {
                     city.map((item, index) => {
@@ -49,6 +59,10 @@ const App = () => {
                 }
 
             </div>
+
+            {/*    Conditional Rendering    */}
+            <h1>Login Status</h1>
+            {loginStatusBtn(true)}
 
         </>
     );
