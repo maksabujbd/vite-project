@@ -7,7 +7,7 @@ import {Fragment} from "react";
 const App = () => {
 
     let marks = 80;
-
+    const city = ["Dhaka", "London", "Delhi", "Kolkata", "Chittagong"];
     return (
         <>
             <Fragment>
@@ -24,6 +24,7 @@ const App = () => {
                 {
                     marks >= 80 ? <h1>Brilliant Result</h1> : <h1>Average Result</h1>
                 }
+                {/* immediately invoked function */}
 
                 {(
                     () => {
@@ -38,6 +39,14 @@ const App = () => {
                         }
                     }
                 )()}
+
+                {/*    Loop inside implementation using map */}
+
+                {
+                    city.map((item, index) => {
+                        return <li key={index.toString()}>{item}</li>
+                    })
+                }
 
             </div>
 
