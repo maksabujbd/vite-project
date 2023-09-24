@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Header from "./component/Header.jsx";
+import Hero from "./component/Hero.jsx";
+import ContactForm from "./component/ContactForm.jsx";
+import Footer from "./component/Footer.jsx";
+import {Fragment} from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    let marks = 80;
 
-export default App
+    return (
+        <>
+            <Fragment>
+                <Header/>
+                <Hero/>
+                <ContactForm/>
+                <Footer/>
+            </Fragment>
+
+            <div>
+                <h1 style={{color: 'red'}}>Heading</h1>
+                <button onClick={() => alert("Hi, Good Afternoon!")}>Submit</button>
+
+                {
+                    marks >= 80 ? <h1>Brilliant Result</h1> : <h1>Average Result</h1>
+                }
+
+                {(
+                    () => {
+                        if (marks >= 80 && marks < 100) {
+                            return <h1>A+</h1>
+                        } else if (marks >= 70 && marks < 80) {
+                            return <h1>A</h1>
+                        } else if (marks >= 60 && marks < 70) {
+                            return <h1>B+</h1>
+                        } else {
+                            return <h1>F</h1>
+                        }
+                    }
+                )()}
+
+            </div>
+
+        </>
+    );
+};
+
+export default App;
